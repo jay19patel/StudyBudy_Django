@@ -1,0 +1,19 @@
+   
+    <nav>
+        <div>
+            <a href="/"><button>Home</button></a>
+
+            {% if request.user.is_authenticated %}
+            <h1> {{request.user}}</h1>
+            <a href="{% url 'Logout'%}"><button>Logout</button></a>
+            <a href="{% url 'CreatRoom'%}"><button>CreatRoom</button></a>
+            <a href="{% url 'Update_Profile'%}"><button>My Profile </button></a>
+            <a href=""><button>InBox</button></a>
+            {% else %}
+            <a href="{% url 'LoginPage'%}"><button>Login</button></a>
+            <a href="{% url 'RegistrationPage'%}"><button>Registration</button></a>
+            {% endif %}
+            
+        </div>
+    </nav>
+    <hr>

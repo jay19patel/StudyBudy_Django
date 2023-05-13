@@ -1,0 +1,40 @@
+{% extends 'Main.html' %}
+
+{% block content %}
+<a href=""><button>Info</button></a>
+
+<div>
+{% for subs in room_subs %}
+<h1>{{subs}}</h1>
+{% endfor %}
+</div>
+
+
+
+
+<section>
+   
+<h1> Topic Name :{{room.topic_name}}</h1>
+<h4 >Room Name : {{room.room_name}}</h4>
+<br><br>
+{% for message in room_messages  %}
+<p>@ {{message.sender}}</p>
+<p> {{message.timestamp|timesince}}</p>
+<!-- Messages  -->
+    {{message.Messages}}<hr>
+<!-- Messages  -->
+
+{% endfor %}
+
+{% if request.user.is_authenticated  %}
+<form action="/join_room/{{id}}/{{auther}}/" method="POST">
+    {% csrf_token %}
+        <input type="text"placeholder="Type message" name="Message">
+        <button type="submit">Send</button>
+      </div>
+</form>             
+{% endif %}
+
+</section>
+
+{% endblock %}

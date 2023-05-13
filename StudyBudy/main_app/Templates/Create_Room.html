@@ -1,0 +1,17 @@
+{% extends 'Main.html' %}
+{% block content %}
+<h1> Create Room </h1>
+{% comment %} auther_name=models.ForeignKey(User,on_delete =models.SET_NULL,null=True)
+topic_name =models.ForeignKey(Topic,on_delete =models.SET_NULL,null=True)
+room_name=models.CharField(max_length=100)
+updated =models.DateTimeField(auto_now=True)
+created =models.DateTimeField(auto_now_add=True) {% endcomment %}
+<div>
+    <form action="/CreatRoom" method="POST">
+        {% csrf_token %}
+        <input type="text" name="topic_name" placeholder="topic_name">
+        <input type="text" name="room_name" placeholder="room_name">
+        <button type="submit">Create</button>
+    </form>
+</div>
+{% endblock %}

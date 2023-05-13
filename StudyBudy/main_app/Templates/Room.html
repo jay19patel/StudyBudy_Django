@@ -1,0 +1,13 @@
+{% extends 'Main.html' %}
+
+{% block content %}
+<h1> Information About Rooms </h1>
+<h6> Room Auther : {{room.auther_name}}</h6>
+<h6> Room topic_name : {{room.topic_name}}</h6>
+<h6> Room Name : {{room.room_name}}</h6>
+<h6> Room created : {{room.created}}</h6>
+
+
+<br><br><br><br><hr>
+<a href="{% url 'join_room' room.id room.auther_name %}"><button>Join Now </button></a>
+{% endblock %}

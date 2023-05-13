@@ -1,0 +1,35 @@
+{% extends 'Main.html' %}
+{% block content %}
+<h1>  Add Details  </h1>
+
+<form method="POST" action="/Update_Profile" enctype="multipart/form-data">
+    {% csrf_token %}
+    <label for="username">Username:</label>
+    <input type="text" value="{{request.user}}" required><br>
+  
+    <label for="full_name">Full Name:</label>
+    <input type="text" name="full_name" value="{{room.full_name}}" required><br>
+  
+    <label for="Email">Email:</label>
+    <input type="text" name="email" value="{{room.email}}" required><br>
+
+    <label for="mobile_number">Mobile Number:</label>
+    <input type="tel" name="mobile_number" value="{{room.phone_no}}" ><br>
+
+    <label for="profile_bio">Profile Image:</label>
+    <input type="file" name="profile" value="{{room.image}}" ><br>
+  
+    <label for="skills">Skills:</label>
+    <input type="text" name="skills" value="{{room.skills}}" ><br>
+    
+    <label for="bio">bio:</label>
+    <input type="text" name="bio" value="{{room.bio}}" ><br>
+    
+    <label for="city">City:</label>
+    <input type="text" name="city" value="{{room.location}}" ><br>
+  
+    <input type="submit" value="Submit" >
+  </form>
+  
+
+{% endblock %}

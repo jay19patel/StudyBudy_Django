@@ -1,0 +1,14 @@
+{% extends 'Main.html' %}
+{% block content %}
+<h1> Registration </h1>
+
+    <form action="/RegistrationPage" method="POST">
+        {% csrf_token %}
+            <input type="email" name="email" class="email" placeholder="Email" />
+            <input type="text"  name="username" class="username" placeholder="Username" />
+            <input type="password" name="password1" class="password" placeholder="password here" />
+            <input type="password" name="password2" class="password" placeholder="enter agian" />
+            <button class="submit">Sign Up</button>
+    </form>
+
+{% endblock %}

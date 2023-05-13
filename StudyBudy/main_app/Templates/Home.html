@@ -1,0 +1,25 @@
+{% extends 'Main.html' %}
+{% block content %}
+<h1> Home Page HTML</h1>
+{% if data %}
+    {% for room in data %}
+    <h6> Room Auther : {{room.auther_name}}</h6>
+    <h6> Room topic_name : {{room.topic_name}}</h6>
+    <h6> Room Name : {{room.room_name}}</h6>
+    <h6> Room created : {{room.created}}</h6>
+    {% if request.user.is_authenticated %}
+
+    {% if request.user == room.auther_name %}
+    <a href="{% url 'DeleteRoom' room.id %}"><button>Delete</button></a>
+    <a href="{% url 'RoomPage' room.id %}"><button> Watch Room </button></a>
+    {% else %}
+    <a href="{% url 'RoomPage' room.id %}"><button> Watch Room </button></a>
+    <a href=""><button> Save </button></a>
+    {% endif %}
+    {% endif %}
+    <hr>
+    {% endfor %}
+{% else %}
+<h1> NO Rooms </h1>
+{% endif %}
+{% endblock %}
