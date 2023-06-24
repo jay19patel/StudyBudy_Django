@@ -78,7 +78,7 @@ def Update_Profile(request):
             )
         data.save()
         return redirect('HomePage')
-    user_data = Profilemodel.objects.get(id=request.user.id)
+    user_data = Profilemodel.objects.filter(id=request.user.id)
     context={'room':user_data}
     return render(request,'full_Registration.html',context)
 
